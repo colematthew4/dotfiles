@@ -3,33 +3,17 @@
 echo "Installing Homebrew"
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# turbogit optional, recommended if gitkraken can't be used
-brew tap b4nst/homebrew-tap
 brew install \
-  gradle \
-  graphviz \
-  jenv \
   jq \
-  nvm \
-  yarn \
-  rustup \
   bat \
   eth-p/software/bat-extras-batgrep
 
 # don't install casks on github runner
 if [ -z "$CI" ]; then
-  # gitkraken optional because of license
   brew install --cask \
-    adoptopenjdk \
-    cheatsheet \
-    gitkraken \
-    jetbrains-toolbox \
+    #keycue \
     rectangle \
     vivaldi \
     docker \
-    warp \
-    open-in-code \
-    visual-studio-code \
-    microsoft-teams \
-    slack
+    warp
 fi
